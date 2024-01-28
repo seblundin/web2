@@ -25,7 +25,6 @@ const getAllCats = async (): Promise<Cat[]> => {
   }
 };
 
-// TODO: create getCat function to get single cat
 const getCat = async (catId: number): Promise<Cat | null> => {
   try {
     const [rows] = await promisePool.execute<RowDataPacket[] & Cat[]>(
@@ -52,7 +51,6 @@ const getCat = async (catId: number): Promise<Cat | null> => {
   }
 };
 
-// TODO: use Utility type to modify Cat type for 'data'.
 // Note that owner is not User in this case. It's just a number (user_id)
 const addCat = async (
   data: Omit<Cat, 'owner'> & {owner: number}
@@ -78,7 +76,6 @@ const addCat = async (
   return {message: 'Cat added', id: headers.insertId};
 };
 
-// TODO: create updateCat function to update single cat
 // if role is admin, update any cat
 // if role is user, update only cats owned by user
 // You can use updateUser function from userModel as a reference for SQL

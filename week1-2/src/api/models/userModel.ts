@@ -32,7 +32,6 @@ const getUser = async (userId: number): Promise<User> => {
   return rows[0];
 };
 
-// TODO: create addUser function
 const addUser = async (
   data: Omit<User, 'user_id'>
 ): Promise<MessageResponse> => {
@@ -70,7 +69,6 @@ const updateUser = async (
   return {message: 'User updated'};
 };
 
-// TODO: create deleteUser function
 const deleteUser = async (id: number): Promise<MessageResponse> => {
   const [headers] = await promisePool.execute<ResultSetHeader>(
     `

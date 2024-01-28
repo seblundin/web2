@@ -106,7 +106,6 @@ const userPut = async (
   }
 };
 
-// TODO: create userPutCurrent function to update current user
 // userPutCurrent should use updateUser function from userModel
 // userPutCurrent should use validationResult to validate req.body
 const userPutCurrent = async (
@@ -136,7 +135,6 @@ const userPutCurrent = async (
   }
 };
 
-// TODO: create userDelete function for admin to delete user by id
 // userDelete should use deleteUser function from userModel
 // userDelete should use validationResult to validate req.params.id
 // userDelete should use req.user to get role
