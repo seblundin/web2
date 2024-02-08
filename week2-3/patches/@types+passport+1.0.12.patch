@@ -1,0 +1,19 @@
+diff --git a/node_modules/@types/passport/index.d.ts b/node_modules/@types/passport/index.d.ts
+index 6870e6e..02781f9 100755
+--- a/node_modules/@types/passport/index.d.ts
++++ b/node_modules/@types/passport/index.d.ts
+@@ -17,7 +17,13 @@ declare global {
+         // tslint:disable-next-line:no-empty-interface
+         interface AuthInfo {}
+         // tslint:disable-next-line:no-empty-interface
+-        interface User {}
++        interface User {
++            email: string;
++            password: string;
++            role: 'user' | 'admin';
++            user_name: string;
++            _id: Types.ObjectId;
++        }
+ 
+         interface Request {
+             authInfo?: AuthInfo | undefined;
