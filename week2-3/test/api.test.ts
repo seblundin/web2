@@ -79,7 +79,7 @@ describe('GET /api/v1', () => {
 
   // test get single user
   it('should return single user', async () => {
-    await getSingleUser(app, user.user._id);
+    await getSingleUser(app, user.user._id as unknown as string);
   });
 
   // test update user
@@ -96,14 +96,14 @@ describe('GET /api/v1', () => {
   let catID: string;
   it('should upload a cat', async () => {
     const message = await postCat(app, token, 'cat.jpg');
-    catID = message.data._id;
+    catID = message.data._id as unknown as string;
   });
 
   // test cat upload with GPS
   let catID2: string;
   it('should upload a cat with GPS', async () => {
     const message = await postCat(app, token, 'picWithGPS.jpg');
-    catID2 = message.data._id;
+    catID2 = message.data._id as unknown as string;
   });
 
   // test get all cats
@@ -135,7 +135,7 @@ describe('GET /api/v1', () => {
   let catID3: string;
   it('should upload a cat for admin test', async () => {
     const message = await postCat(app, token, 'cat.jpg');
-    catID3 = message.data._id;
+    catID3 = message.data._id as unknown as string;
   });
 
   // login as admin

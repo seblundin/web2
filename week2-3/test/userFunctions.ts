@@ -30,7 +30,7 @@ const getUser = (url: string | Function): Promise<User[]> => {
   });
 };
 
-const getSingleUser = (url: string | Function, id: number): Promise<User> => {
+const getSingleUser = (url: string | Function, id: string): Promise<User> => {
   return new Promise((resolve, reject) => {
     request(url)
       .get('/api/v1/users/' + id)
