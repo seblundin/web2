@@ -1,5 +1,6 @@
+import {Types} from 'mongoose';
+export {};
 declare global {
-  import {Types} from 'mongoose';
   namespace Express {
     interface User {
       email: string;
