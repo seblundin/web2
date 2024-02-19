@@ -1,4 +1,3 @@
-// TODO: mongoose schema for cat
 import mongoose, {Schema, Types} from 'mongoose';
 import {Cat} from '../../interfaces/Cat';
 

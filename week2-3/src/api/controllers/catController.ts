@@ -1,5 +1,3 @@
-// TODO: create following functions:
-// - catGetByBoundingBox - get all cats by bounding box coordinates (getJSON)
 import {
   addCat,
   deleteCat,

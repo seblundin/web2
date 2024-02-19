@@ -1,4 +1,3 @@
-// TODO: mongoose schema for user
 import mongoose, {Model, Schema, Types} from 'mongoose';
 import {User, UserOutput} from '../../interfaces/User';
 interface IUserModel extends Model<User> {

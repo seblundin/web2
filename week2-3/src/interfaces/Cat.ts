@@ -1,4 +1,3 @@
-// TODO: cat interface
 import {Document, Types} from 'mongoose';
 
 interface Cat extends Document {

@@ -29,8 +29,6 @@ const fileFilter = (
 const upload = multer({dest: './uploads/', fileFilter});
 const router = express.Router();
 
-// TODO: add validation
-
 router
   .route('/')
   .get(catListGet)

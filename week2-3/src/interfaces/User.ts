@@ -1,6 +1,4 @@
 import {Document, Types} from 'mongoose';
-
-// TODO: user interface
 interface User extends Document {
   _id: Types.ObjectId;
   user_name: string; // This is not username, just firstname lastname

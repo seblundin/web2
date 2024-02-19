@@ -1,4 +1,3 @@
-// TODO: create the following functions:
 // - userGet - get user by id
 // - userListGet - get all users
 // - userPost - create new user. Remember to hash password

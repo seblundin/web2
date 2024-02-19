@@ -11,8 +11,6 @@ import passport from '../../passport';
 
 const router = express.Router();
 
-// TODO: add validation
-
 router
   .route('/')
   .get(userListGet)
