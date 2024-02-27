@@ -14,9 +14,9 @@ const catModel = new mongoose.Schema<Cat>({
     required: true,
   },
   owner: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
+    id: mongoose.Schema.Types.ObjectId,
+    user_name: String,
+    email: String,
   },
   filename: {
     type: String,
@@ -37,6 +37,13 @@ const catModel = new mongoose.Schema<Cat>({
       required: true,
     },
   },
+});
+
+catModel.method('toJSON', function () {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const {__v, _id, ...object} = this.toObject();
+  object.id = _id;
+  return object;
 });
 
 export default mongoose.model<Cat>('Cat', catModel);
