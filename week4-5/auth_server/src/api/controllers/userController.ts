@@ -11,7 +11,7 @@ export const check = (_: Request, res: Response) => {
 
 export const checkToken = async (
   _: Request,
-  res: Response,
+  res: Response<MessageResponse & {id: number}>,
   next: NextFunction
 ) => {
   if (!res.locals.user) {
@@ -22,16 +22,17 @@ export const checkToken = async (
 
 export const userDelete = async (
   req: Request<{id: string}>,
-  res: Response<MessageResponse>,
+  res: Response,
   next: NextFunction
 ) => {
   try {
-    if (!req.params.id) {
+    if (!req.query.id) {
       next(new CustomError('Bad request, user id missing', 400));
     }
-    const result = await UserModel.deleteOne({id: req.params.id});
+    const result = await UserModel.findOneAndDelete({_id: req.query.id}).exec();
+    console.error(result);
     result
-      ? res.json({message: 'User deleted'})
+      ? res.json({message: 'User deleted', user: result})
       : new CustomError('Not found', 404);
   } catch (error) {
     next(error);
@@ -57,7 +58,7 @@ export const userListGet = async (
   next: NextFunction
 ) => {
   try {
-    const users = await UserModel.find();
+    const users = await UserModel.find().exec();
     return res.json(users);
   } catch (e) {
     next(e);
@@ -103,7 +104,7 @@ export const userPut = async (
 
     const result = await UserModel.findByIdAndUpdate(res.locals.user.id, user, {
       returnDocument: 'after',
-    });
+    }).exec();
     result
       ? res.json({message: 'User updated', user: result})
       : new CustomError('Error', 500);
